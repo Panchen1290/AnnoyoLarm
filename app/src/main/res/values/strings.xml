@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Annoy-o-Larm</string>
+    <string name="login_login">Login</string>
+    <string name="login_register">Register</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="menu_configurations">Configuracion</string>
+    <string name="menu_contacts">Contactos</string>
+    <string name="menu_alarms">Alarmas</string>
+    <string name="menu_statistics">Estadisticas</string>
+    <string name="menu_profile">Perfil</string>
+
 </resources>
