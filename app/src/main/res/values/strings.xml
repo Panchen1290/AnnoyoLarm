@@ -10,4 +10,10 @@
     <string name="menu_statistics">Estadisticas</string>
     <string name="menu_profile">Perfil</string>
 
+    <string name="emailExampleRegister">yourmail@domain.com</string>
+    <string name="emailRegister">E-Mail</string>
+    <string name="passwordRegister">Password</string>
+    <string name="passwordExampleRegister">Password123</string>
+    <string name="repeatPasswordRegister">Repeat Your Password</string>
+    <string name="registerRegister">Register</string>
 </resources>
