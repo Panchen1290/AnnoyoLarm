@@ -39,27 +39,12 @@
         android:text="@string/login_login"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signInGoogleButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            tools:background="@android:color/holo_red_dark"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            tools:background="@android:color/holo_blue_dark"/>
-
-    </LinearLayout>
+        android:layout_gravity="center"
+        android:layout_margin="8dp"/>
 
     <Button
         android:id="@+id/loginRegisterButton"
