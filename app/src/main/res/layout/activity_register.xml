@@ -62,4 +62,13 @@
         android:padding="18dp"
         android:text="@string/registerRegister"
         android:textSize="18sp" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
 </LinearLayout>
