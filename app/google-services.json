@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "971440040573",
+    "firebase_url": "https://annoyolarm.firebaseio.com",
+    "project_id": "annoyolarm",
+    "storage_bucket": "annoyolarm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971440040573:android:561e91baf826c2eb",
+        "android_client_info": {
+          "package_name": "edu.upb.certi.annoy_o_larm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971440040573-4gjpf5rvilimk8r3lsk676hisj6bpb5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.upb.certi.annoy_o_larm",
+            "certificate_hash": "927f560cd09bc980e049bb3a82c729707663e4da"
+          }
+        },
+        {
+          "client_id": "971440040573-ikqtmbpo85mqf27jm6f1qoi0bfv34q6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0nIdzfNw9gAsa6rpmQLoY335Xx2XN4I0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971440040573-ikqtmbpo85mqf27jm6f1qoi0bfv34q6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
