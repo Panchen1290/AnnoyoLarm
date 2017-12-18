@@ -36,8 +36,6 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
 
     public static final int SIGN_IN_CODE = 777;
 
-    private ProgressBar progressBar;
-
     private FirebaseAuth firebaseAuth;
     //private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
@@ -72,8 +70,8 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
                 openRegister();
             }
         });
-        progressBar = findViewById(R.id.progressBar);
-       /* signInGoogle = (SignInButton) findViewById(R.id.signInGoogleButton);
+        /*progressBar = findViewById(R.id.progressBar);
+        signInGoogle = (SignInButton) findViewById(R.id.signInGoogleButton);
         signInGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,10 +92,6 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
             }
         };
         */
-        if(firebaseAuth.getCurrentUser()
-                !=null){
-            goMainScreen();
-        }
     }
 /*
     @Override
@@ -118,13 +112,13 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
-        progressBar.setVisibility(View.VISIBLE);
+       /* progressBar.setVisibility(View.VISIBLE);*/
         if(!email.equals("")&&!password.equals("")) {
             firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            progressBar.setVisibility(View.GONE);
+                           /* progressBar.setVisibility(View.GONE);*/
                             if (task.isSuccessful()) {
                                 goMainScreen();
                             } else {
