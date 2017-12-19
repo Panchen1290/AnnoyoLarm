@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,23 +42,14 @@ public class InviteActivity extends AppCompatActivity {
             @Override
             public void onContactClick(Contact contact) {
                 Toast.makeText(context,contact.getName()+" "+contact.getNumber(),Toast.LENGTH_SHORT).show();
-                String mensaje = "Ven y participa de la Polla Rusia 2018 que estoy organizando, por favor";
+                String mensaje = "Despiertame de esta pesadilla por favor!!!!!";
 
-                /*Uri uri = Uri.parse("smsto:"+contacto.getNumero());
+                Uri uri = Uri.parse("smsto:"+contact.getNumber());
                 Intent it = new Intent(Intent.ACTION_SENDTO, uri);
                 it.putExtra("sms_body", mensaje);
-                startActivity(it);*/
+                startActivity(it);
 
-                //sendSMS(contact.getNumber(),mensaje);
-                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
-                whatsappIntent.setType("text/plain");
-                whatsappIntent.setPackage("com.whatsapp");
-                whatsappIntent.putExtra(Intent.EXTRA_TEXT, mensaje);
-                try {
-                    startActivity(whatsappIntent);
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Log.e(LOG,"Whatsapp no instalado.");
-                }
+                sendSMS(contact.getNumber(),mensaje);
             }
         });
 

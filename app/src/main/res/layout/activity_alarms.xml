@@ -8,9 +8,27 @@
     android:padding="16dp"
     tools:context="edu.upb.certi.annoy_o_larm.AlarmsActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/alarmsRecyclerView"
+    <TimePicker
+        android:id="@+id/alarmTimePicker"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/alarmTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Encendido / Apagado" />
+
+    <Button
+        android:id="@+id/alarmOnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Encender" />
+
+    <Button
+        android:id="@+id/alarmOffButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apagar" />
 </LinearLayout>

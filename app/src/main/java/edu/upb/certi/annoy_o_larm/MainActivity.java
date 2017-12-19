@@ -11,13 +11,20 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button configurations;
+    private Button configurations, alarms, contacts;
 
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+
+   private  FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() ==null){
+            goLogIn();
+        }
 
         configurations = (Button) findViewById(R.id.menuConfigurationsButton);
         configurations.setOnClickListener(new View.OnClickListener() {
@@ -26,6 +33,42 @@ public class MainActivity extends AppCompatActivity {
                 goConfigurations();
             }
         });
+
+        alarms = (Button) findViewById(R.id.menuAlarmsButton);
+        alarms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goAlarms();
+            }
+        });
+
+        contacts = (Button) findViewById(R.id.menuContactsButton);
+        contacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goContacts();
+            }
+        });
+    }
+
+    private void goContacts() {
+        Intent intent = new Intent(this, InviteActivity.class);
+        startActivity(intent);
+
+        if(firebaseAuth.getCurrentUser()
+                !=null){
+            goLogIn();
+        }
+    }
+
+    private void goAlarms() {
+        Intent intent = new Intent(this, AlarmsActivity.class);
+        startActivity(intent);
+
+        if(firebaseAuth.getCurrentUser()
+                !=null){
+            goLogIn();
+        }
     }
 
 
