@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             goLogIn();
         }
 
-        configurations = (Button) findViewById(R.id.menuConfigurationsButton);
+        configurations =  findViewById(R.id.menuConfigurationsButton);
         configurations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        alarms = (Button) findViewById(R.id.menuAlarmsButton);
+        alarms = findViewById(R.id.menuAlarmsButton);
         alarms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        contacts = (Button) findViewById(R.id.menuContactsButton);
+        contacts =  findViewById(R.id.menuContactsButton);
         contacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        perfil = (Button) findViewById(R.id.menuProfileButton);
+        perfil =  findViewById(R.id.menuProfileButton);
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goProfile() {
-        Intent intent = new Intent(this, InviteActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 

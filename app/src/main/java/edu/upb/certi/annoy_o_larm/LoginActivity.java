@@ -30,32 +30,19 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
     private EditText passwordEditText;
     private Button logInButton;
     private Button openRegisterButton;
-    private SignInButton signInGoogle;
-
-    private GoogleApiClient googleApiClient;
-
-    public static final int SIGN_IN_CODE = 777;
+    private ProgressBar progressBar;
 
     private FirebaseAuth firebaseAuth;
-    //private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        /*GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        googleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this,this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
-                .build();
-*/
-        emailEditText =  findViewById(R.id.emailEditText);
-        passwordEditText =  findViewById(R.id.passwordEditText);
+        progressBar = findViewById(R.id.progressBarLogin);
+        progressBar.setVisibility(View.INVISIBLE);
+        firebaseAuth = FirebaseAuth.getInstance();
+        emailEditText =  findViewById(R.id.loginEmailEditText);
+        passwordEditText =  findViewById(R.id.loginPasswordEditText);
         logInButton =  findViewById(R.id.loginLoginButton);
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,63 +50,26 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
                 logIn();
             }
         });
-        openRegisterButton = findViewById(R.id.registerButton);
+        openRegisterButton = findViewById(R.id.loginRegisterButton);
         openRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openRegister();
             }
         });
-        /*progressBar = findViewById(R.id.progressBar);
-        signInGoogle = (SignInButton) findViewById(R.id.signInGoogleButton);
-        signInGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-                startActivityForResult(intent,SIGN_IN_CODE);
-            }
-        });
-*/
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        /*firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user!=null){
-                    goMainScreen();
-                }
-            }
-        };
-        */
-    }
-/*
-    @Override
-    protected void onStart() {
-        super.onStart();
-        firebaseAuth.addAuthStateListener(firebaseAuthListener);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (firebaseAuthListener != null) {
-            firebaseAuth.removeAuthStateListener(firebaseAuthListener);
-        }
-    }
-*/
     private void logIn() {
+        progressBar.setVisibility(View.VISIBLE);
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-
-       /* progressBar.setVisibility(View.VISIBLE);*/
         if(!email.equals("")&&!password.equals("")) {
             firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                           /* progressBar.setVisibility(View.GONE);*/
                             if (task.isSuccessful()) {
+                                progressBar.setVisibility(View.INVISIBLE);
                                 goMainScreen();
                             } else {
                                 showErrorMessage(task.getException().toString());
@@ -135,6 +85,7 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
 
     private void goMainScreen() {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
@@ -142,40 +93,4 @@ public class LoginActivity extends AppCompatActivity/* implements GoogleApiClien
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
-/*
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == SIGN_IN_CODE){
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
-        }
-    }
-
-    private void handleSignInResult(GoogleSignInResult result) {
-        if(result.isSuccess()){
-            firebaseAuthGoogle(result.getSignInAccount());
-        } else{
-            Toast.makeText(this,"No se pudo iniciar sesion",Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void firebaseAuthGoogle(GoogleSignInAccount signInAccount) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(),null);
-        firebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(!task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(),"Hubo un problema",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-    */
 }

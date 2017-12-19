@@ -39,17 +39,14 @@
         android:text="@string/login_login"
         android:textStyle="bold" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/signInGoogleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"/>
-
     <Button
         android:id="@+id/loginRegisterButton"
         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_register" />
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

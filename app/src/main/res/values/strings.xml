@@ -16,4 +16,5 @@
     <string name="passwordExampleRegister">Password123</string>
     <string name="repeatPasswordRegister">Repeat Your Password</string>
     <string name="registerRegister">Register</string>
+    <string name="log_out">LOG OUT</string>
 </resources>
