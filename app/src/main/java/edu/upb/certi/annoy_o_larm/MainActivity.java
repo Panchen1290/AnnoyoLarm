@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button configurations, alarms, contacts;
+    private Button configurations, alarms, contacts, perfil;
 
 
 
@@ -49,26 +49,32 @@ public class MainActivity extends AppCompatActivity {
                 goContacts();
             }
         });
+
+        perfil = (Button) findViewById(R.id.menuProfileButton);
+        perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goProfile();
+            }
+        });
+    }
+
+    private void goProfile() {
+        Intent intent = new Intent(this, InviteActivity.class);
+        startActivity(intent);
     }
 
     private void goContacts() {
         Intent intent = new Intent(this, InviteActivity.class);
         startActivity(intent);
 
-        if(firebaseAuth.getCurrentUser()
-                !=null){
-            goLogIn();
-        }
+
     }
 
     private void goAlarms() {
         Intent intent = new Intent(this, AlarmsActivity.class);
         startActivity(intent);
 
-        if(firebaseAuth.getCurrentUser()
-                !=null){
-            goLogIn();
-        }
     }
 
 
@@ -76,10 +82,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConfigurationsActivity.class);
         startActivity(intent);
 
-        if(firebaseAuth.getCurrentUser()
-                !=null){
-            goLogIn();
-        }
     }
 
     private void goLogIn() {
